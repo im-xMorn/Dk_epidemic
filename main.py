@@ -6,11 +6,11 @@ from email.utils import formataddr
 import urllib3
 # 关闭请求警告报错
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-def Dk_auto():
+def Dk_auto(Bearer):
     url = 'https://sac.cqvie.edu.cn/schoolapi//api-prevention/signinfo/savebatch'
     headers = {
         'content-type': 'application/json',
-        'Authorization': 'Bearer 01302218-7ba7-43d0-a125-dce8dab7b96b',
+        'Authorization': Bearer,
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat'
     }
     data = {"isTravel": 0, "isContact": 0, "isCohabit": 0, "isFatigue": 0, "isShortnessBreath": 0,
@@ -53,8 +53,9 @@ def to_mail(answer,users):
         ret = False
     return ret
 
-users = ['2101543615@qq.com'] 
-Begin = Dk_auto()
+users = ['2101543615@qq.com']
+Bearer = '01302218-7ba7-43d0-a125-dce8dab7b96b'
+Begin = Dk_auto(Bearer)
 print(Begin)
 # to_mail(Begin,users[0])
 
