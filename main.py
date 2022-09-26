@@ -31,35 +31,15 @@ def Dk_auto(Bearer):
     else:
         print(response)
         return '今日已打卡'
+if '__name__'=='__main__':
+    Bearer = '01302218-7ba7-43d0-a125-dce8dab7b96b'
+    Begin = Dk_auto(Bearer)
+    print(Begin)
 
-def to_mail(answer,users):
-    my_sender = '2101543615@qq.com'  # 发件人邮箱账号
-    my_pass = 'yrtuodxocejyfafh'  # 发件人邮箱授权码，第一步得到的
-    ret = True
-    try:
-        mail_msg = f"""
-                        <p>{answer}</p>
-                   """
-        msg = MIMEText(mail_msg, 'html', 'utf-8')
-        msg['From'] = formataddr(["托马斯提醒你", my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
-        msg['To'] = formataddr([str(users), users])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号
-        msg['Subject'] = "自动疫情打卡"  # 邮件的主题，也可以说是标题
-        server = smtplib.SMTP_SSL("smtp.qq.com", 465)  # 发件人邮箱中的SMTP服务器，端口是465，固定的，不能更改 使用SSL模式
-        server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱授权码
-        server.set_debuglevel(1)
-        server.sendmail(my_sender, [users, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件信息
-        server.quit()  # 关闭连接
-    except Exception as err:  # 如果 try 中的语句没有执行，则会执行下面的 ret=False
-        ret = False
-    return ret
-
-users = ['2101543615@qq.com']
-Bearer = '01302218-7ba7-43d0-a125-dce8dab7b96b'
-Begin = Dk_auto(Bearer)
-print(Begin)
-# to_mail(Begin,users[0])
-
-# token 过期
+"""
+    返回字段值
+"""
+# token-Bearer字段 已过期
 # {"resp_code":401,"resp_msg":"Invalid access token: 82ae0853-5ca7-4248-97ae-8669949bae5d"}
 
 # 今日已打卡
