@@ -31,7 +31,7 @@ def Dk_auto(Bearer):
     else:
         print(response)
         return '今日已打卡'
-if '__name__'=='__main__':
+if __name__=='__main__':
     Bearer = '01302218-7ba7-43d0-a125-dce8dab7b96b'
     Begin = Dk_auto(Bearer)
     print(Begin)
