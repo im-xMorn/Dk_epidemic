@@ -10,3 +10,4 @@ http://api.map.baidu.com/lbsapi/getpoint/index.html
 ### 抓包工具-Fiddler
 ### 微信版本-3.6.18
 ### 本脚本仅为学习交流，请勿随意使用！
+### 本脚本的Bearer值无法长期使用，因此本脚本已停止使用!
